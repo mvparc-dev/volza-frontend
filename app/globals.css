@@ -172,3 +172,22 @@ html {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+
+/* for left side panel of login page */
+
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-slide {
+  animation: slide 40s linear infinite;
+}
+.testimonial-container:hover .animate-slide {
+  animation-play-state: paused;
+}

@@ -6,6 +6,7 @@ import React from "react";
 export type Tab = {
   label: string; // The text displayed on the button
   value: string; // A unique identifier for the tab
+  icon?: React.ReactNode; // NEW: Optional icon property
 };
 
 interface TabSelectorProps {
@@ -33,7 +34,7 @@ const TabSelector: React.FC<TabSelectorProps> = ({
           <button
             onClick={() => onTabChange(tab.value)}
             className={`
-              text-center px-4 py-2 text-sm font-semibold rounded-md transition-colors
+               flex items-center justify-center text-center px-4 py-2 text-sm font-semibold rounded-md transition-colors
               ${fullWidth ? "flex-1" : ""}
               ${
                 activeTab === tab.value
@@ -42,6 +43,7 @@ const TabSelector: React.FC<TabSelectorProps> = ({
               }
             `}
           >
+            {tab.icon && <span className="mr-2 h-5 w-5">{tab.icon}</span>}
             {tab.label}
           </button>
           {index < tabs.length - 1 && <div className="w-px h-6 bg-gray-200" />}
