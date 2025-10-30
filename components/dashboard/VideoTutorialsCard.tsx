@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { VideoTutorial } from "../../types/dashboard/types";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
 import DashboardCard from "../../app/(auth)/dashboard/shared/DashboardCard";
-import TabSelector, { Tab } from "../../app/(auth)/shared/TabSelector";
+import TabSelector, { Tab } from "../ui/TabSelector";
 
 interface VideoTutorialsCardProps {
   tutorials: VideoTutorial[];

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { NotificationItem } from "../../types/dashboard/types";
 import DashboardCard from "../../app/(auth)/dashboard/shared/DashboardCard";
-import TabSelector, { Tab } from "../../app/(auth)/shared/TabSelector";
+import TabSelector, { Tab } from "../ui/TabSelector";
 
 interface NotificationsCardProps {
   notifications: NotificationItem[];

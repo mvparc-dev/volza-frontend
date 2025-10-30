@@ -63,14 +63,14 @@ const SideNavBar = ({ mobileOpen = false }: { mobileOpen?: boolean }) => {
       </div>
 
       {/* Scrollable Main Navigation Area */}
-      <nav className="flex-grow min-h-0 overflow-y-auto w-full flex flex-col items-center mt-8 space-y-3">
+      <nav className="flex-grow min-h-0 overflow-y-auto w-full flex flex-col items-center mt-8 space-y-3 scrollbar-hide">
         {mainNavIcons.map((Icon, index) => (
           <button
             key={index}
             className="p-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors"
           >
             {/* 4. Used the 'iconsax-react' Icon component */}
-            <Icon size="20" />
+            <Icon size="16" />
           </button>
         ))}
       </nav>
@@ -78,13 +78,13 @@ const SideNavBar = ({ mobileOpen = false }: { mobileOpen?: boolean }) => {
       {/* Bottom Icons (Stays fixed at the bottom) */}
       <div className="shrink-0 mt-8 flex flex-col items-center space-y-3">
         <button className="p-3 bg-gray-100 rounded-xl text-gray-700 hover:bg-gray-200 transition-colors">
-          <Headphone size="20" />
+          <Headphone size="16" />
         </button>
         <button className="p-3 bg-orange-50 rounded-xl text-orange-500 hover:bg-orange-100 transition-colors">
-          <Gift size="20" />
+          <Gift size="16" />
         </button>
         <button className="p-3 text-red-500 hover:bg-red-50 rounded-lg transition-colors">
-          <LogoutCurve size="20" />
+          <LogoutCurve size="16" />
         </button>
       </div>
     </aside>
