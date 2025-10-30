@@ -10,6 +10,7 @@ interface DashboardCardProps {
   children: React.ReactNode;
   headerContent?: React.ReactNode;
   autoHeight?: boolean;
+  className?: string;
 }
 
 const DashboardCard: React.FC<DashboardCardProps> = ({
@@ -19,6 +20,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
   children,
   headerContent,
   autoHeight = false,
+  className,
 }) => {
   // --- FIX IS HERE ---
   // Reduced the fixed height from 480px to a more compact 420px
@@ -26,19 +28,25 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
 
   return (
     <div
-      className={`bg-white border border-gray-200 rounded-xl p-6 shadow-sm flex flex-col ${heightClass}`}
+      className={`bg-white border border-gray-200 rounded-xl p-6 shadow-sm flex flex-col ${heightClass} ${
+        className ?? ""
+      }`}
     >
-      <div className="flex justify-between items-start mb-4">
-        <div>
-          <div className="flex items-center gap-3">
-            <h2 className="text-lg font-bold text-gray-800">{title}</h2>
+      <div className="flex flex-col sm:flex-row gap-1 sm:gap-4 items-start sm:items-center mb-4 w-full">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <h2 className="text-lg font-bold text-gray-800 truncate">
+              {title}
+            </h2>
             {headerContent}
           </div>
-          <p className="text-sm text-gray-500 mt-1">{subtitle}</p>
+          <p className="text-xs sm:text-sm text-gray-500 mt-1 truncate">
+            {subtitle}
+          </p>
         </div>
         <a
           href={viewAllUrl}
-          className="flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 shrink-0"
+          className="flex items-center text-xs sm:text-sm font-semibold text-blue-600 hover:text-blue-800 shrink-0 mt-2 sm:mt-0"
         >
           View All
           <ArrowRightIcon className="w-4 h-4 ml-1" />

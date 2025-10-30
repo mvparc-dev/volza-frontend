@@ -160,15 +160,15 @@ const DashboardPage: React.FC = () => {
 
   return (
     // Restored the exact wrapper divs as requested
-    <div className="flex-1 p-2 mb-[120px] bg-gray-100 min-h-screen font-figtree">
-      <div className="p-4 space-y-6">
+    <div className="flex-1 p-2 sm:p-4 mb-[120px] bg-[#F8FAFA] min-h-screen font-figtree">
+      <div className="p-2 sm:p-4 space-y-4 sm:space-y-6">
         <WelcomeBanner userName="Aniket" />
 
         {/* Section 1: "What would you like to do today?" - NOW A SEPARATE COMPONENT */}
         <SearchSection />
 
         {/* Section 2: Profile Completion and Features */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
           <ProfileCompletionCard
             tasks={profileTasksData}
             completionPercentage={33}
@@ -186,13 +186,13 @@ const DashboardPage: React.FC = () => {
         </div>
 
         {/* Section 4: Tasks and Activities */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
           <TasksCard tasks={tasksData} />
           <ActivitiesCard activities={activitiesData} />
         </div>
 
         {/* Section 5: Video Tutorials and Notifications */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
           <VideoTutorialsCard
             tutorials={videoTutorialsData}
             autoHeight={true}

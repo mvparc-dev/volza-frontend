@@ -24,18 +24,19 @@ interface WelcomeBannerProps {
 
 const WelcomeBanner: React.FC<WelcomeBannerProps> = ({ userName }) => {
   return (
-    <div className="rounded-xl flex justify-between items-center">
-      {/* Welcome Message */}
-      <h1 className="text-2xl font-semibold text-gray-800">
+    <div className="rounded-xl flex flex-col sm:flex-row items-center sm:justify-between gap-4">
+      <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 text-center sm:text-left">
         Welcome back, {userName}!
       </h1>
-
-      {/* Upgrade Section */}
-      <div className="flex items-center gap-4">
-        <span className="text-sm font-semibold text-blue-600">7 Days left</span>
-        <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white font-semibold text-sm rounded-lg hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30">
-          <CrownIcon />
-          Upgrade now
+      <div className="flex items-center gap-2">
+        <span className="text-xs sm:text-sm font-semibold text-blue-600 whitespace-nowrap">
+          7 Days left
+        </span>
+        <button
+          className="flex items-center gap-1 px-4 py-2 bg-blue-600 text-white font-semibold text-xs sm:text-sm rounded-lg hover:bg-blue-700 transition-colors shadow-lg whitespace-nowrap"
+          style={{ minWidth: 120 }}
+        >
+          <CrownIcon /> Upgrade now
         </button>
       </div>
     </div>

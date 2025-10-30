@@ -29,19 +29,20 @@ const ProfileCompletionCard: React.FC<ProfileCompletionCardProps> = ({
       subtitle="Get personalized market insights by updating your profile."
       headerContent={badge}
       autoHeight={autoHeight}
+      className="p-3 sm:p-6"
     >
       {/* This parent div organizes the content vertically */}
-      <div className="flex flex-col h-full">
+      <div className="flex flex-col h-full min-w-0">
         {/* Progress Bar section remains at the top */}
-        <div className="mb-4">
-          <div className="flex items-center gap-4">
+        <div className="mb-3 sm:mb-4">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start sm:items-center min-w-0">
             <div className="w-full bg-gray-200 rounded-full h-2">
               <div
                 className="bg-green-500 h-2 rounded-full"
                 style={{ width: `${completionPercentage}%` }}
               ></div>
             </div>
-            <span className="text-sm font-medium text-gray-600 shrink-0">
+            <span className="text-xs sm:text-sm font-medium text-gray-600 shrink-0">
               1/8
             </span>
           </div>
@@ -52,17 +53,17 @@ const ProfileCompletionCard: React.FC<ProfileCompletionCardProps> = ({
           - flex-col: Stacks items vertically.
           - space-y-3: Adds a consistent margin between items.
         */}
-        <ul className="flex-grow flex flex-col space-y-3">
+        <ul className="flex-grow flex flex-col space-y-2 sm:space-y-3">
           {tasks.slice(0, 3).map((task) => (
             // KEY CHANGE: flex-grow on the LI makes each item expand equally.
-            <li key={task.id} className="flex-grow flex">
+            <li key={task.id} className="flex-grow flex min-w-0">
               <a
                 href="#"
-                className="w-full h-full flex items-center justify-between p-4 border border-gray-200 hover:bg-gray-50 rounded-lg transition-colors"
+                className="w-full flex items-center justify-between p-2 sm:p-4 border border-gray-200 hover:bg-gray-50 rounded-lg transition-colors min-w-0"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 sm:gap-4 min-w-0">
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold flex-shrink-0 ${
                       task.isCompleted
                         ? "bg-green-100 text-green-600"
                         : "bg-blue-100 text-blue-600"
@@ -70,18 +71,20 @@ const ProfileCompletionCard: React.FC<ProfileCompletionCardProps> = ({
                   >
                     {task.step}
                   </div>
-                  <span className="font-medium text-gray-700">
+                  <span className="font-medium text-gray-700 text-xs sm:text-base truncate">
                     {task.description}
                   </span>
-                  <div className="flex items-center gap-1 text-blue-500">
+                  <div className="flex items-center gap-1 text-blue-500 flex-shrink-0">
                     <SparklesIcon className="w-4 h-4" />
-                    <span className="text-sm font-semibold">{task.points}</span>
+                    <span className="text-xs sm:text-sm font-semibold">
+                      {task.points}
+                    </span>
                   </div>
                 </div>
                 {task.isCompleted ? (
-                  <CheckCircleIcon className="w-6 h-6 text-green-500" />
+                  <CheckCircleIcon className="w-5 h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0" />
                 ) : (
-                  <ChevronRightIcon className="w-5 h-5 text-gray-400" />
+                  <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0" />
                 )}
               </a>
             </li>

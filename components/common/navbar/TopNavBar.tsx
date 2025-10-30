@@ -33,14 +33,14 @@ export default function TopNavBar({
   return (
     <header className="bg-white">
       {/* --- TOP ROW --- */}
-      <div className="px-6 py-3 flex items-center justify-between">
+      <div className="px-2 sm:px-6 py-2 sm:py-3 flex flex-wrap items-center justify-between gap-2 sm:gap-0 min-w-0">
         {/* Left Side - Navigation */}
-        <div className="flex items-center space-x-4 md:space-x-8">
+        <div className="flex items-center flex-shrink-0 space-x-3 sm:space-x-4 md:space-x-8 min-w-0">
           {/* Hamburger on mobile */}
           <button
             aria-label="Open menu"
             onClick={onMenuClick}
-            className="md:hidden p-2 rounded-md hover:bg-gray-100"
+            className="md:hidden p-2 rounded-md hover:bg-gray-100 flex-shrink-0"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@ export default function TopNavBar({
             </svg>
           </button>
 
-          <nav className="hidden md:flex items-center space-x-7 text-sm font-medium">
+          <nav className="hidden md:flex items-center space-x-3 sm:space-x-7 text-xs sm:text-sm font-medium min-w-0">
             <a
               href="#"
               className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -84,32 +84,34 @@ export default function TopNavBar({
         </div>
 
         {/* Right Side - User Controls */}
-        <div className="flex items-center space-x-4">
-          <button className="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50">
+        <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0 overflow-x-auto pr-2 sm:pr-0">
+          <button className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 border border-gray-200 rounded-lg hover:bg-gray-50">
             <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
               <StarIcon />
             </div>
-            <span className="text-sm font-semibold text-gray-700">10</span>
+            <span className="text-xs sm:text-sm font-semibold text-gray-700">
+              10
+            </span>
           </button>
-          <button className="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-lg bg-gray-50/50 hover:bg-gray-100">
+          <button className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 border border-gray-200 rounded-lg bg-gray-50/50 hover:bg-gray-100">
             <div className="w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center">
               <StarIcon />
             </div>
-            <span className="text-sm font-semibold text-gray-700">
+            <span className="text-xs sm:text-sm font-semibold text-gray-700">
               My Credits
             </span>
             <ChevronDownIcon className="w-4 h-4 text-gray-500" />
           </button>
-          <button className="relative p-2 rounded-lg hover:bg-gray-100 transition-colors">
+          <button className="relative p-2 rounded-lg hover:bg-gray-100 transition-colors flex-shrink-0">
             <BellIcon className="w-6 h-6 text-gray-600" />
             <span className="absolute top-1.5 right-1.5 block h-2.5 w-2.5 rounded-full bg-red-500 border-2 border-white"></span>
           </button>
-          <button className="w-9 h-9 rounded-full overflow-hidden">
+          <button className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden flex-shrink-0">
             <Image
               src="https://i.pravatar.cc/40"
               alt="User Avatar"
-              width={36}
-              height={36}
+              width={32}
+              height={32}
             />
           </button>
         </div>
@@ -117,32 +119,30 @@ export default function TopNavBar({
 
       {/* --- BOTTOM ROW --- */}
       <div className="border-t border-gray-100">
-        <div className="px-6 py-2 flex items-center justify-end">
-          <div className="flex items-center space-x-4">
-            {/* My Shortcuts Button Group */}
-            <div className="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-lg">
-              <span className="text-sm font-semibold text-gray-700">
-                My Shortcuts
-              </span>
-              <button className="w-6 h-6 bg-blue-50 rounded-full flex items-center justify-center hover:bg-blue-100">
-                <PlusIcon className="w-4 h-4 text-blue-600" />
-              </button>
-              <button className="w-6 h-6 bg-blue-50 rounded-full flex items-center justify-center hover:bg-blue-100">
-                <PlusIcon className="w-4 h-4 text-blue-600" />
-              </button>
-              <button className="w-6 h-6 bg-blue-50 rounded-full flex items-center justify-center hover:bg-blue-100">
-                <PlusIcon className="w-4 h-4 text-blue-600" />
-              </button>
-            </div>
-
-            {/* Language Selector */}
-            <button className="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50">
-              <span className="text-sm font-medium text-gray-600">
-                English (UK)
-              </span>
-              <ChevronDownIcon className="w-4 h-4 text-gray-500" />
+        <div className="px-2 sm:px-6 py-2 flex flex-wrap items-center justify-center sm:justify-end gap-2">
+          {/* My Shortcuts Button Group */}
+          <div className="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-lg">
+            <span className="text-sm font-semibold text-gray-700">
+              My Shortcuts
+            </span>
+            <button className="w-6 h-6 bg-blue-50 rounded-full flex items-center justify-center hover:bg-blue-100">
+              <PlusIcon className="w-4 h-4 text-blue-600" />
+            </button>
+            <button className="w-6 h-6 bg-blue-50 rounded-full flex items-center justify-center hover:bg-blue-100">
+              <PlusIcon className="w-4 h-4 text-blue-600" />
+            </button>
+            <button className="w-6 h-6 bg-blue-50 rounded-full flex items-center justify-center hover:bg-blue-100">
+              <PlusIcon className="w-4 h-4 text-blue-600" />
             </button>
           </div>
+
+          {/* Language Selector */}
+          <button className="flex items-center gap-2 px-3 py-1.5 border border-gray-200 rounded-lg hover:bg-gray-50">
+            <span className="text-sm font-medium text-gray-600">
+              English (UK)
+            </span>
+            <ChevronDownIcon className="w-4 h-4 text-gray-500" />
+          </button>
         </div>
       </div>
     </header>
