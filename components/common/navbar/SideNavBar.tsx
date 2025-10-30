@@ -70,7 +70,7 @@ const SideNavBar = ({ mobileOpen = false }: { mobileOpen?: boolean }) => {
             className="p-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors"
           >
             {/* 4. Used the 'iconsax-react' Icon component */}
-            <Icon size="24" />
+            <Icon size="20" />
           </button>
         ))}
       </nav>
@@ -78,13 +78,13 @@ const SideNavBar = ({ mobileOpen = false }: { mobileOpen?: boolean }) => {
       {/* Bottom Icons (Stays fixed at the bottom) */}
       <div className="shrink-0 mt-8 flex flex-col items-center space-y-3">
         <button className="p-3 bg-gray-100 rounded-xl text-gray-700 hover:bg-gray-200 transition-colors">
-          <Headphone size="24" />
+          <Headphone size="20" />
         </button>
         <button className="p-3 bg-orange-50 rounded-xl text-orange-500 hover:bg-orange-100 transition-colors">
-          <Gift size="24" />
+          <Gift size="20" />
         </button>
         <button className="p-3 text-red-500 hover:bg-red-50 rounded-lg transition-colors">
-          <LogoutCurve size="24" />
+          <LogoutCurve size="20" />
         </button>
       </div>
     </aside>
