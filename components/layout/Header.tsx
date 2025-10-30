@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { ChevronDown, Bell, Plus, Globe } from 'lucide-react';
-import { cn } from '@/utils/helpers';
+import { useState } from "react";
+import { ChevronDown, Bell, Plus, Globe } from "lucide-react";
+import { cn } from "@/utils/helpers";
 
 interface HeaderProps {
   sidebarCollapsed: boolean;
@@ -24,9 +24,7 @@ export default function Header({ sidebarCollapsed }: HeaderProps) {
             <button className="text-gray-700 hover:text-[#2563eb] transition-colors font-medium">
               Workspaces
             </button>
-            <button className="text-[#2563eb] font-medium">
-              Countries
-            </button>
+            <button className="text-[#2563eb] font-medium">Countries</button>
             <button className="text-gray-700 hover:text-[#2563eb] transition-colors font-medium">
               Company logs
             </button>
@@ -44,14 +42,20 @@ export default function Header({ sidebarCollapsed }: HeaderProps) {
               <div className="w-6 h-6 bg-[#2563eb] rounded-full flex items-center justify-center">
                 <span className="text-white text-xs font-bold">10</span>
               </div>
-              <span className="text-sm font-medium text-gray-700">My Credits</span>
+              <span className="text-sm font-medium text-gray-700">
+                My Credits
+              </span>
               <ChevronDown className="w-4 h-4 text-gray-500" />
             </button>
-            
+
             {showCreditsDropdown && (
               <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
-                <div className="px-4 py-2 text-sm text-gray-700">Credits: 10</div>
-                <div className="px-4 py-2 text-sm text-gray-700">Plan: Basic</div>
+                <div className="px-4 py-2 text-sm text-gray-700">
+                  Credits: 10
+                </div>
+                <div className="px-4 py-2 text-sm text-gray-700">
+                  Plan: Basic
+                </div>
                 <div className="border-t border-gray-200 mt-2 pt-2">
                   <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     Upgrade Plan
@@ -83,7 +87,7 @@ export default function Header({ sidebarCollapsed }: HeaderProps) {
               <span className="text-sm font-medium">English (UK)</span>
               <ChevronDown className="w-4 h-4" />
             </button>
-            
+
             {showLanguageDropdown && (
               <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                 <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">

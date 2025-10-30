@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/utils/helpers';
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/utils/helpers";
 import {
   Search,
   FolderOpen,
@@ -16,8 +16,8 @@ import {
   Users,
   Settings,
   HelpCircle,
-  LogOut
-} from 'lucide-react';
+  LogOut,
+} from "lucide-react";
 
 interface SidebarProps {
   isCollapsed: boolean;
@@ -25,28 +25,30 @@ interface SidebarProps {
 }
 
 const navigationItems = [
-  { name: 'Dashboard', href: '/dashboard', icon: Home },
-  { name: 'Search', href: '/search', icon: Search },
-  { name: 'Workspaces', href: '/workspaces', icon: FolderOpen },
-  { name: 'Countries', href: '/countries', icon: Globe },
-  { name: 'Company Logs', href: '/company-logs', icon: Building2 },
+  { name: "Dashboard", href: "/dashboard", icon: Home },
+  { name: "Search", href: "/search", icon: Search },
+  { name: "Workspaces", href: "/workspaces", icon: FolderOpen },
+  { name: "Countries", href: "/countries", icon: Globe },
+  { name: "Company Logs", href: "/company-logs", icon: Building2 },
 ];
 
 const secondaryItems = [
-  { name: 'Analytics', href: '/analytics', icon: BarChart3 },
-  { name: 'Team', href: '/team', icon: Users },
-  { name: 'Settings', href: '/settings', icon: Settings },
-  { name: 'Help', href: '/help', icon: HelpCircle },
+  { name: "Analytics", href: "/analytics", icon: BarChart3 },
+  { name: "Team", href: "/team", icon: Users },
+  { name: "Settings", href: "/settings", icon: Settings },
+  { name: "Help", href: "/help", icon: HelpCircle },
 ];
 
 export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
   const pathname = usePathname();
 
   return (
-    <div className={cn(
-      'bg-white border-r border-gray-200 flex flex-col transition-all duration-300',
-      isCollapsed ? 'w-16' : 'w-64'
-    )}>
+    <div
+      className={cn(
+        "bg-white border-r border-gray-200 flex flex-col transition-all duration-300",
+        isCollapsed ? "w-16" : "w-64"
+      )}
+    >
       {/* Logo Section */}
       <div className="p-4 border-b border-gray-200">
         <div className="flex items-center justify-between">
@@ -77,20 +79,20 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
           {navigationItems.map((item) => {
             const isActive = pathname === item.href;
             const Icon = item.icon;
-            
+
             return (
               <Link
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  'flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                  "flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors",
                   isActive
-                    ? 'bg-[#2563eb] text-white'
-                    : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900',
-                  isCollapsed && 'justify-center'
+                    ? "bg-[#2563eb] text-white"
+                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                  isCollapsed && "justify-center"
                 )}
               >
-                <Icon className={cn('w-5 h-5', !isCollapsed && 'mr-3')} />
+                <Icon className={cn("w-5 h-5", !isCollapsed && "mr-3")} />
                 {!isCollapsed && <span>{item.name}</span>}
               </Link>
             );
@@ -103,20 +105,20 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
             {secondaryItems.map((item) => {
               const isActive = pathname === item.href;
               const Icon = item.icon;
-              
+
               return (
                 <Link
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    'flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                    "flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors",
                     isActive
-                      ? 'bg-[#2563eb] text-white'
-                      : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900',
-                    isCollapsed && 'justify-center'
+                      ? "bg-[#2563eb] text-white"
+                      : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                    isCollapsed && "justify-center"
                   )}
                 >
-                  <Icon className={cn('w-5 h-5', !isCollapsed && 'mr-3')} />
+                  <Icon className={cn("w-5 h-5", !isCollapsed && "mr-3")} />
                   {!isCollapsed && <span>{item.name}</span>}
                 </Link>
               );
@@ -127,10 +129,12 @@ export default function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
 
       {/* User Section */}
       <div className="p-4 border-t border-gray-200">
-        <div className={cn(
-          'flex items-center',
-          isCollapsed ? 'justify-center' : 'space-x-3'
-        )}>
+        <div
+          className={cn(
+            "flex items-center",
+            isCollapsed ? "justify-center" : "space-x-3"
+          )}
+        >
           {!isCollapsed && (
             <div className="flex-1">
               <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">

@@ -38,9 +38,15 @@ const mainNavIcons = [
   PresentationChartBarIcon,
 ];
 
-const SideNavBar = () => {
+const SideNavBar = ({ mobileOpen = false }: { mobileOpen?: boolean }) => {
   return (
-    <aside className="fixed top-0 left-0 h-screen w-20 bg-white border-r border-gray-200 flex flex-col items-center py-5 shadow-sm">
+    <aside
+      className={
+        `fixed md:static top-0 left-0 h-screen w-20 bg-white border-r border-gray-200 flex flex-col items-center py-5 shadow-sm z-40 ` +
+        `transform transition-transform duration-300 ` +
+        `${mobileOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`
+      }
+    >
       {/* Logo (Stays fixed at the top) */}
       <div className="shrink-0">
         <a href="#">

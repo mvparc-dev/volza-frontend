@@ -25,14 +25,40 @@ const StarIcon = () => (
   </svg>
 );
 
-export default function TopNavBar() {
+export default function TopNavBar({
+  onMenuClick,
+}: {
+  onMenuClick?: () => void;
+}) {
   return (
     <header className="bg-white">
       {/* --- TOP ROW --- */}
       <div className="px-6 py-3 flex items-center justify-between">
         {/* Left Side - Navigation */}
-        <div className="flex items-center space-x-8">
-          <nav className="flex items-center space-x-7 text-sm font-medium">
+        <div className="flex items-center space-x-4 md:space-x-8">
+          {/* Hamburger on mobile */}
+          <button
+            aria-label="Open menu"
+            onClick={onMenuClick}
+            className="md:hidden p-2 rounded-md hover:bg-gray-100"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="w-6 h-6 text-gray-700"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+
+          <nav className="hidden md:flex items-center space-x-7 text-sm font-medium">
             <a
               href="#"
               className="text-gray-600 hover:text-gray-900 transition-colors"
