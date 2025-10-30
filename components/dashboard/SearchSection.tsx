@@ -13,7 +13,7 @@ type CardDataItem = {
   anchorUrl: string;
 };
 
-// Data for the action cards is now managed within this component
+// Data for the action cards
 const cardData: CardDataItem[] = [
   {
     type: "buyers",
@@ -51,9 +51,6 @@ const SearchSection: React.FC = () => {
   const [searchType, setSearchType] = useState<"guided" | "advanced">("guided");
 
   return (
-    // --- FIX IS HERE ---
-    // The main container now uses the 'style' prop to apply multiple backgrounds.
-    // The image URL is listed first, so it renders on top of the gradient.
     <div
       className="relative px-6 py-6 rounded-xl overflow-hidden"
       style={{
@@ -64,17 +61,33 @@ const SearchSection: React.FC = () => {
         backgroundRepeat: "no-repeat, repeat",
       }}
     >
-      {/* Content for the search section */}
       <div className="relative z-10">
-        <div className=" mx-auto">
-          <div className="relative w-full mb-6">
+        <div className="mx-auto">
+          {/* --- HYBRID RESPONSIVE LAYOUT STARTS HERE --- */}
+
+          {/* Layout for Mobile and Tablet (Visible by default, hidden on lg screens) */}
+          <div className="mb-6 lg:hidden">
+            <div className="flex flex-col items-center justify-center gap-2">
+              <h1 className="text-xl md:text-3xl font-bold text-gray-800 text-center">
+                What would you like to do today?
+              </h1>
+              <div className="text-center text-sm text-gray-600">
+                <span>Data Updated: July 20, 2025</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Layout for Desktop (Hidden by default, visible on lg screens) */}
+          <div className="hidden lg:block relative w-full mb-6">
             <h1 className="text-xl md:text-3xl font-bold text-gray-800 text-center w-full">
               What would you like to do today?
             </h1>
-            <div className="absolute right-0 top-[26%] -translate-y-1/2 text-right text-sm text-gray-600">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 text-right text-sm text-gray-600">
               <span>Data Updated: July 20, 2025</span>
             </div>
           </div>
+
+          {/* --- HYBRID RESPONSIVE LAYOUT ENDS HERE --- */}
 
           <div className="flex items-center justify-center mb-8">
             <div className="bg-white p-1 rounded-lg shadow-sm flex items-center space-x-2">
@@ -102,7 +115,7 @@ const SearchSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {cardData.map((card) => (
             <ActionCard
               key={card.type}
